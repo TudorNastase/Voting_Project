@@ -62,5 +62,5 @@ def round_two(excl_cand):
 excluded_candidate = round_one()
 winner, results = round_two(excluded_candidate)
 print("Excluded: ", excluded_candidate)
-print("Results: ", results)
+print("Results plurality with run off US: ", results)
 print("Winner: ", winner)
