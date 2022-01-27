@@ -2,6 +2,7 @@ import read_data
 
 data = read_data.dictlist
 
+
 def round_one(state):
     # calculate number of votes for a single US state
     votes_trump = int(state['TCB']) + int(state['TBC'])
