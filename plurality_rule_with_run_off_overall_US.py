@@ -1,5 +1,5 @@
 import read_data
-
+import matplotlib.pyplot as plt
 data = read_data.dictlist
 
 def round_one():

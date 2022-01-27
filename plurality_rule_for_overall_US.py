@@ -2,21 +2,14 @@ import read_data
 
 data = read_data.dictlist
 
-results = {
-    'Trump': 0,
-    'Bush': 0,
-    'Clinton': 0
-}
-
-
-def determine_winner():
+def determine_winner(results):
     max_votes = max(results['Trump'], results['Bush'], results['Clinton'])
     for candidate in results.keys():
         if results[candidate] == max_votes:
             return candidate
 
 
-def calculate_votes():
+def calculate_votes(results):
     # calculate number of votes for overall US
     for state in data:
         votes_trump = int(state['TCB']) + int(state['TBC'])
@@ -27,9 +20,18 @@ def calculate_votes():
         results['Bush'] += votes_bush
         results['Clinton'] += votes_clinton
 
+def main_program():
+    results = {
+        'Trump': 0,
+        'Bush': 0,
+        'Clinton': 0
+    }
+    calculate_votes(results)
+    winner = determine_winner(results)
+    # print("Results plurality rule for overall US:")
+    # print(results)
+    # print("Winner is:", winner)
+    return winner
 
-calculate_votes()
-winner = determine_winner()
-print("Results plurality rule for overall US:")
-print(results)
-print("Winner is:", winner)
+
+main_program()

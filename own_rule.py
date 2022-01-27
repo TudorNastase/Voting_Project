@@ -62,6 +62,6 @@ def main_program():
             return candidate, results
 
 
-winner, results = main_program()
-print("Results plurality rule with run off per state: ", results)
-print("Winner: ", winner)
+# winner, results = main_program()
+# print("Results plurality rule with run off per state: ", results)
+# print("Winner: ", winner)

@@ -2,21 +2,16 @@ import read_data
 
 data = read_data.dictlist
 
-results = {
-    'Trump': 0,
-    'Bush': 0,
-    'Clinton': 0
-}
 
 
-def determine_winner():
+def determine_winner(results):
     max_seats = max(results['Trump'], results['Bush'], results['Clinton'])
     for candidate in results.keys():
         if results[candidate] == max_seats:
             return candidate
 
 
-def calculate_seats():
+def calculate_seats(results):
     for state in data:
         votes_trump = int(state['TCB']) + int(state['TBC'])
         votes_clinton = int(state['CTB']) + int(state['CBT'])
@@ -32,9 +27,17 @@ def calculate_seats():
         elif votes_clinton == max_votes:
             results['Clinton'] += seats
 
+def main_program():
+    results = {
+        'Trump': 0,
+        'Bush': 0,
+        'Clinton': 0
+    }
 
-calculate_seats()
-winner = determine_winner()
-print("Results Current System:")
-print(results)
-print("Winner is:", winner)
+    calculate_seats(results)
+    winner = determine_winner(results)
+    print("Results Current System:")
+    print(results)
+    print("Winner is:", winner)
+    return winner
+main_program()
