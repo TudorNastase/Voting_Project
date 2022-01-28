@@ -3,6 +3,14 @@ import read_data
 data = read_data.dictlist
 
 
+"""
+Implements plurality with run-off per state
+It's extremely similar to plurality with run-off for overall US. 
+The two rounds are held on a per-state basis. The winner for each state wins all the seats of that state
+The results dictionary is used to keep tally of the number of seats
+Winner is Bush for the given dataset
+"""
+
 def round_one(state):
     # calculate number of votes for a single US state
     votes_trump = int(state['TCB']) + int(state['TBC'])
@@ -44,13 +52,14 @@ def round_two(excl_cand, state):
         return 'Clinton'
 
 
+# returns the winning candidate and the final results of the election
 def main_program():
     results = {
         'Trump': 0,
         'Bush': 0,
         'Clinton': 0
     }
-
+    # iterates trough state, finds the winner and adds up the seats into the results dictionary
     for state in data:
         excl_cand = round_one(state)
         state_winner = round_two(excl_cand, state)
@@ -59,6 +68,7 @@ def main_program():
 
         results[state_winner] += seats
 
+    # calculates the overall winner
     max_seats = max(results['Trump'], results['Bush'], results['Clinton'])
     for candidate in results.keys():
         if results[candidate] == max_seats:

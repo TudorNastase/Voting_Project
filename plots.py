@@ -10,7 +10,8 @@ arr2= [0, 0, 0]
 candidates = ['Trump', 'Bush', 'Clinton']
 ct=0
 ct1=0
-for i in range(10):
+ct2=0
+for i in range(100):
     dictlist = []
     filename='generated' + str(i) +'.csv'
 
@@ -52,11 +53,17 @@ for i in range(10):
             ct+=1
         if winner == winner2:
             ct1+=1
+        if winner1 == winner2 == winner:
+            ct2+=1
+
+
 plt.bar(candidates, arr, color='g')
 plt.show()
 plt.bar(candidates, arr1, color='r')
 plt.show()
 plt.bar(candidates, arr2, color='b')
 plt.show()
-print(ct,ct1)
+print('winner of own rule same as plurality:',ct)
+print( 'winner of own rule same as current system',ct1)
+print(ct2)
 
