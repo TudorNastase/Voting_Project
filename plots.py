@@ -4,6 +4,12 @@ import own_rule
 import plurality_rule_for_overall_US as pl_US
 import current_system as cur_sis
 
+"""
+program that creates plot from the generated data
+run generate_data.py  before running this 
+Explanation and significance of plots in the report
+"""
+
 arr = [0, 0, 0]
 arr1= [0, 0, 0]
 arr2= [0, 0, 0]
